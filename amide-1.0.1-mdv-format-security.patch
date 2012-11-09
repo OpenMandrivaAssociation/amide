@@ -1,0 +1,50 @@
+Index: amide-1.0.1/src/amide.c
+===================================================================
+--- amide-1.0.1.orig/src/amide.c
++++ amide-1.0.1/src/amide.c
+@@ -131,7 +131,7 @@ void missing_functionality_warning(Amitk
+ #endif
+ 			   NULL);
+ 
+-    g_warning(comments);
++    g_warning("%s", comments);
+     
+     g_free(comments);
+     amide_gconf_set_string("MISSING_FUNCTIONALITY", "AlreadyWarned", VERSION);
+Index: amide-1.0.1/src/amide_gnome.c
+===================================================================
+--- amide-1.0.1.orig/src/amide_gnome.c
++++ amide-1.0.1/src/amide_gnome.c
+@@ -166,6 +166,7 @@ static gboolean amide_gnome_url_show_wit
+ 		g_set_error (error,
+ 			     AMIDE_GNOME_URL_ERROR,
+ 			     AMIDE_GNOME_URL_ERROR_VFS,
++			     "%s",
+ 			     gnome_vfs_result_to_string (result));
+ 	}
+ 
+Index: amide-1.0.1/src/amitk_space_edit.c
+===================================================================
+--- amide-1.0.1.orig/src/amitk_space_edit.c
++++ amide-1.0.1/src/amitk_space_edit.c
+@@ -335,6 +335,7 @@ static gboolean space_edit_prompt(AmitkS
+   				    GTK_DIALOG_DESTROY_WITH_PARENT,
+   				    GTK_MESSAGE_QUESTION,
+   				    GTK_BUTTONS_OK_CANCEL,
++				    "%s",
+   				    message);
+   return_val = gtk_dialog_run(GTK_DIALOG(question));
+   
+Index: amide-1.0.1/src/tb_profile.c
+===================================================================
+--- amide-1.0.1.orig/src/tb_profile.c
++++ amide-1.0.1/src/tb_profile.c
+@@ -368,7 +368,7 @@ static void save_profiles(const gchar *
+   }
+ 
+   results = results_as_string(tb_profile);
+-  fprintf(file_pointer, results);
++  fprintf(file_pointer, "%s", results);
+   g_free(results);
+ 
+   fclose(file_pointer);
