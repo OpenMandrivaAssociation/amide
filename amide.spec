@@ -10,16 +10,15 @@ Patch0:		amide-1.0.1-mdv-format-security.patch
 
 BuildRequires:  xmedcon-devel
 BuildRequires:  volpack-devel 
-BuildRequires:  libxml2-devel 
-#BuildRequires:  gtk-doc 
-BuildRequires:  gnome-doc-utils
+BuildRequires:  pkgconfig(libxml-2.0)
+BuildRequires:  pkgconfig(gnome-doc-utils)
 BuildRequires:  pkgconfig(libgnomecanvas-2.0)
-BuildRequires:  ffmpeg-devel >= 0.4.9
+BuildRequires:  ffmpeg0.7-devel
 BuildRequires:  gsl-devel
 BuildRequires:  dcmtk-devel
 BuildRequires:  perl-XML-Parser
-BuildRequires:  glib2-devel
-BuildRequires:  gtk2-devel >= 2.10
+BuildRequires:  pkgconfig(glib-2.0)
+BuildRequires:  pkgconfig(gtk+-2.0)
 BuildRequires:	gnome-vfs2-devel
 BuildRequires:	intltool
 
@@ -45,8 +44,7 @@ alignments.
 make
 
 %install
-rm -rf %{buildroot}
-make install DESTDIR=%{buildroot}
+%makeinstall_std
 
 desktop-file-install --vendor gnome --delete-original                   \
   --dir %{buildroot}%{_datadir}/applications                         \
@@ -58,7 +56,6 @@ rm -rf %{buildroot}/var/scrollkeeper
 %find_lang %{name}
 
 %files -f %{name}.lang
-%defattr(-, root, root)
 %doc AUTHORS COPYING ChangeLog NEWS README todo
 %{_bindir}/*
 %{_datadir}/pixmaps
@@ -67,6 +64,4 @@ rm -rf %{buildroot}/var/scrollkeeper
 %{_datadir}/applications
 %{_datadir}/gtk-doc
 %{_mandir}/man1/*
-
-
 
