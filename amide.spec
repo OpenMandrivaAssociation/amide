@@ -1,6 +1,6 @@
 Name: 		amide
 Version: 	1.0.1
-Release: 	1
+Release: 	2
 Summary: 	Program for viewing and analyzing medical image data sets
 License: 	GPLv2+
 Group: 		Graphics
