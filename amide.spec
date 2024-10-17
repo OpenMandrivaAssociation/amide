@@ -4,7 +4,7 @@ Release: 	2
 Summary: 	Program for viewing and analyzing medical image data sets
 License: 	GPLv2+
 Group: 		Graphics
-URL: 		http://amide.sourceforge.net
+URL: 		https://amide.sourceforge.net
 Source0: 	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tgz
 Patch0:		amide-1.0.1-mdv-format-security.patch
 
