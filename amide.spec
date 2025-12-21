@@ -8,6 +8,11 @@ URL: 		https://amide.sourceforge.net
 Source0: 	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tgz
 Patch0:		amide-1.0.1-mdv-format-security.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  xmedcon-devel
 BuildRequires:  volpack-devel 
 BuildRequires:  pkgconfig(libxml-2.0)
